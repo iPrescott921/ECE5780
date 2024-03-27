@@ -164,17 +164,14 @@ int main(void)
   GPIOA->MODER |= (1<<8);
   GPIOA->MODER |= (1<<9);
 
-  GPIOA->PUPDR  &= ~(1<<8);
-  GPIOA->PUPDR &= ~(1<<9);
+  //GPIOA->PUPDR  &= ~(1<<8);
+  //GPIOA->PUPDR &= ~(1<<9);
 
   // Enable DAC channel 1
   RCC->APB1ENR |= RCC_APB1ENR_DACEN;
-  // DAC->CR |= DAC_CR_EN1;
   DAC->CR |= (1<<0);
 
   // Set DAC channel 1 to software trigger mode
-  // DAC->CR |= DAC_CR_TEN1;
-  // DAC->CR &= ~DAC_CR_TSEL1;
   DAC->CR |= (1<<3);
   DAC->CR |= (1<<4);
   DAC->CR |= (1<<5);
